@@ -1,4 +1,4 @@
-function frames = YUVread(YUVfile, height, width, nb_frames)
+function frames = myYUVread(YUVfile, height, width, nb_frames)
 
     fp_input = fopen(YUVfile, 'r');
 

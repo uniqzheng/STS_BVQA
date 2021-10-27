@@ -133,30 +133,32 @@ mu_prisparam,cov_prisparam);
         tempfeat1 = [];
         tempfeat2 = [];
         tempfeat3 = [];
-        tempall = [];
-        frames = YUVread(yuv_name, height, width, nb_frames);
+        %tempall = [];
+        frames = myYUVread(yuv_name, height, width, nb_frames);
         % XY-T
         for fr = floor(framerate/2):framerate:nb_frames-3
             y_plane = frames(:,:,fr);
             %imshow(y_plane,[]);
             tempfeat1(end+1,:) = brisque_feature(y_plane);
         end
-        
+        tempfeat1 = nanmean(tempfeat1);
         % XT-Y
         for fr = floor(height/2/scale_coef):floor(height/scale_coef):height
             y_plane = reshape(frames(fr,:,:),[width nb_frames]);
             %imshow(y_plane,[]);
             tempfeat2(end+1,:) = brisque_feature(y_plane);
         end
+        tempfeat2 = nanmean(tempfeat2);
         % YT-X
         for fr = floor(width/2/scale_coef):floor(width/scale_coef):width
             y_plane = reshape(frames(:,fr,:),[height nb_frames]);
             %imshow(y_plane,[]);
             tempfeat3(end+1,:) = brisque_feature(y_plane);
         end
-        tempall = [tempfeat1,tempfeat2,tempfeat3];
+        tempfeat3 = nanmean(tempfeat3);
+        feats_mat(i,:) = [tempfeat1,tempfeat2,tempfeat3];
         delete(yuv_name);
-        feats_mat(i,:) = nanmean(tempall);  %求平均
+        %feats_mat(i,:) = nanmean(tempall);  %求平均
         if write_file
            save(out_mat_name, 'feats_mat');
         end
@@ -165,29 +167,32 @@ mu_prisparam,cov_prisparam);
         tempfeat1 = [];
         tempfeat2 = [];
         tempfeat3 = [];
-        tempall = [];
-        frames = YUVread(yuv_name, height, width, nb_frames);
+        %tempall = [];
+        frames = myYUVread(yuv_name, height, width, nb_frames);
         % XY-T
         for fr = floor(framerate/2):framerate:nb_frames-3
             y_plane = frames(:,:,fr);
             %imshow(y_plane,[]);
             tempfeat1(end+1,:) = Grad_LOG_CP_TIP(y_plane);
         end
+        tempfeat1 = nanmean(tempfeat1);
         % XT-Y
         for fr = floor(height/2/scale_coef):floor(height/scale_coef):height
             y_plane = reshape(frames(fr,:,:),[width nb_frames]);
             %imshow(y_plane,[]);
             tempfeat2(end+1,:) = Grad_LOG_CP_TIP(y_plane);
         end
+        tempfeat2 = nanmean(tempfeat2);
         % YT-X
         for fr = floor(width/2/scale_coef):floor(width/scale_coef):width
             y_plane = reshape(frames(:,fr,:),[height nb_frames]);
             %imshow(y_plane,[]);
             tempfeat3(end+1,:) = Grad_LOG_CP_TIP(y_plane);
         end
-        tempall = [tempfeat1,tempfeat2,tempfeat3];
+        tempfeat3 = nanmean(tempfeat3);
+        feats_mat(i,:) = [tempfeat1,tempfeat2,tempfeat3];
         delete(yuv_name);
-        feats_mat(i,:) = nanmean(tempall);  %求平均
+        %feats_mat(i,:) = nanmean(tempall);  %求平均
         if write_file
            save(out_mat_name, 'feats_mat');
         end
@@ -205,10 +210,9 @@ mu_prisparam,cov_prisparam);
         fv = hosa_feature_extraction(codebook_hosa.centroid_cb, codebook_hosa.variance_cb, ...
             codebook_hosa.skewness_cb, M, P, BS, power, y_plane);
     case 'TLVQM'%%
-        tic
+
         feats(end+1,:) = compute_nrvqa_features(yuv_name,[width height],framerate);
-        %t(p)=toc;
-        %p = p+1;
+
     case 'VIDEVAL'%%
         %feats(end+1,:) = calc_VIDEVAL_feats(yuv_name,width,height,framerate);
         feats(end+1,:) = calc_VIDEVAL_feats_light(yuv_name,width,height,framerate,480,3);
@@ -224,12 +228,12 @@ framerate, minside, net, layer, log_level);
     % compute frame-level features and average
     % for fr = floor(framerate/2):framerate:nb_frames-3  %取每秒中间的图片
     %     %if strcmp(filelist.pixfmt{i}, 'yuv420p')
-    %         YUV = YUVread(fp_input, [width height], fr, 'yuv420p');
+    %         YUV = myYUVread(fp_input, [width height], fr, 'yuv420p');
     %         y_plane= YUV(:,:,1);
     %         RGB = reshape(convertYuvToRgb(reshape(YUV, width * height, 3)), ...
     %                      height, width, 3);
         % else 
-        %     YUV = YUVread(fp_input, [width height], fr, filelist.pixfmt{i})./4;
+        %     YUV = myYUVread(fp_input, [width height], fr, filelist.pixfmt{i})./4;
         %     y_plane= YUV(:,:,1);
         %     RGB = reshape(convertYuvToRgb(reshape(YUV, width * height, 3)), ...
         %                   height, width, 3);
