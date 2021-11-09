@@ -37,3 +37,16 @@
 - Qi: try a new STS method by fetching frames online.
 - Qi: improve complete blind QA models by fit KLD(p(natural), p(test)) where p() can be GMM, MVG and KDE (try on NIQE first).
 - Qi: rewrite the cnn_visualizer_tf.ipynb in pytorch.
+
+### 11-06-2021, Sat
+
+#### Done
+
+- Qi: conduct the experiment of the boost BIQA models(RAPIQUE-SPATIAL, FAVER-SPATIAL, average-NIQE) using STS on Konvid, LIVE-VQC
+- Qi: conduct a new STS method by fetching frames online.
+
+#### Todos
+- Qi: downsample W-axis and H-axis resolution when computing features along XT-Y and YT-X.
+- Qi: run codes of BVQA-2021 by Bowen Li and read the corresponding paper. 
+- Qi: improve complete blind QA models by fit KLD(p(natural), p(test)) where p() can be GMM, MVG and KDE (try on NIQE first).
+- Qi: rewrite the cnn_visualizer_tf.ipynb in pytorch.
