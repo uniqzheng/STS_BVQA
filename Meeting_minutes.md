@@ -61,6 +61,7 @@
 #### Todos
 - Qi: run paq2piq on 4 datasets
 - Qi: select the top features of (XY,XT,YT)
+- Qi: read paper(SLEEQ, TIP2021-Completely blind, Chip-QA0)
 - Qi: run codes of BVQA-2021 by Bowen Li and read the corresponding paper. 
 - Qi: improve complete blind QA models by fit KLD(p(natural), p(test)) where p() can be GMM, MVG and KDE (try on NIQE first).
 - Qi: rewrite the cnn_visualizer_tf.ipynb in pytorch.
