@@ -9,6 +9,10 @@ MODELS=(
   'FAVER_spatial_STS_resize'
   'PAQ2PIQ_STS_resize'
   'resnet50_STS_resize'
+  'RN_RP_FV' #LIVE-VQC
+  'HG_RP_FV' #Youtube-UGC  
+  'FV_RP_FV' #KoNVid  
+  'RP_FV_FV' #LIVE_GAME  
 )
 
 DATASETS=(
