@@ -209,7 +209,7 @@ def main(args):
   array = df.values
   if args.dataset_name == 'LIVE_VQC':
       y = array[1:,1]
-  elif args.dataset_name == 'KoNVid': # for LIVE-VQC & KONVID_1k
+  elif args.dataset_name == 'KoNVid': 
       y = array[1:,4]
   elif args.dataset_name == 'Youtube-UGC':
       y = array[1:,4]
