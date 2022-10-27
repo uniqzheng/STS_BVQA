@@ -11,15 +11,13 @@ MODELS=(
   'resnet50_STS_resize'
   'RN_RP_FV' #LIVE-VQC
   'HG_RP_FV' #Youtube-UGC  
-  'FV_RP_FV' #KoNVid  
-  'RP_FV_FV' #LIVE_GAME  
+  'FV_RP_FV' #KoNVid   
 )
 
 DATASETS=(
   #'KoNVid'
   #'LIVE_VQC'
   'Youtube-UGC'
-  #'LIVE_GAME'
 )
 
 for m in "${MODELS[@]}"
