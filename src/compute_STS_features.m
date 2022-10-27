@@ -19,7 +19,7 @@ algo_name = 'RAPIQUE_spatial';
 %algo_name = 'NIQE'; 
 %algo_name = 'resnet50';
 
-data_name = 'Youtube-UGC'; %LIVE_VQC, KoNVid, LIVE_GAME
+data_name = 'Youtube-UGC'; %LIVE_VQC, KoNVid
 data_path = '../../YouTube-UGC/original_videos_h264';
 write_file = true;
 
