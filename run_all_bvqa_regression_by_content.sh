@@ -3,7 +3,6 @@
 MODELS=(
   'BRISQUE_STS_resize'
   'GM-LOG_STS_resize'
-  'NIQE_STS_resize'
   'HIGRADE_STS_resize'
   'RAPIQUE_spatial_STS_resize'
   'FAVER_spatial_STS_resize'
@@ -35,7 +34,7 @@ do
 #   echo "${out_file}"
 #   echo "${log_file}"
 
-  cmd="python src/evaluate_bvqa_features_by_content_regression.py"
+  cmd="python src/evaluate_bvqa_features_by_content_regression_trainthree.py"
   cmd+=" --model_name $m"
   cmd+=" --dataset_name ${DS}"
   cmd+=" --feature_file ${feature_file}"
