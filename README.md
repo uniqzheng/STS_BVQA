@@ -21,7 +21,7 @@
   <h2>Framework</h2> 
 
 <div style="width: 50%; text-align: center; margin:auto;">
-      <img style="width: 100%" src="fig/workflow_plus.png">
+      <img style="width: 70%" src="fig/workflow_plus.png">
 </div>
 
 <h2>Main Results</h2> 
@@ -37,7 +37,7 @@
 run src/compute_STS_features.m
 ```
 
-### 2. Optimal feature 
+### 2. Optimal features 
 Optimal feature sets of XY, XT, and YT on three evaluated database are provided in ./features.
 
 ### 3. Performance Evaluation
